@@ -1,0 +1,58 @@
+@import "null";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+$bg-color: #120e0f;
+$toggle-color: #fff;
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+.banner {
+    min-height: 100vh;
+    background: $bg-color;
+    padding: 40px 100px;
+    display: flex;
+    align-items: center;
+}
+header {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    align-items: center;
+
+    .toggle {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background: $toggle-color;
+        margin-right: 20px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 28px;
+            height: 3px;
+            background: $bg-color;
+            transform: translateY(-6px);
+            transition: 0.5s;
+        }
+        &.active::before {
+            transform: translateY(0px) rotate(45deg);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 28px;
+            height: 3px;
+            background: $bg-color;
+            transform: translateY(6px);
+            transition: 0.5s;
+        }
+        &.active::after {
+            transform: translateY(0px) rotate(-45deg);
+        }
+    }
+}
